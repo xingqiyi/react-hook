@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 // import { Router, Route, Link } from 'react-router'
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
 
 import DataFetch from './components/DataFetch'
 import CustomDataFetch from './components/CustomDataFetch'
@@ -24,8 +24,7 @@ const PrimaryLayout = () => (
   </div>
 )
 
-
-function App() {
+function App () {
   // return (
   //   <div className="App">
   //     <ReducerDataFetch></ReducerDataFetch>
@@ -36,9 +35,7 @@ function App() {
     <BrowserRouter>
       <PrimaryLayout />
     </BrowserRouter>
-  );
-
-
+  )
 }
 
-export default App;
+export default App

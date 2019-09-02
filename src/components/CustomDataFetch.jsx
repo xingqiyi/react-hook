@@ -2,10 +2,12 @@ import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
 
 const useDataApi = (initialUrl, initialData) => {
-  const [data, setData] = useState(initialData)
   const [url, setUrl] = useState(initialUrl)
+
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [data, setData] = useState(initialData)
+
   useEffect(() => {
     const fetchData = async () => {
       setIsError(false)
@@ -22,8 +24,10 @@ const useDataApi = (initialUrl, initialData) => {
   }, [url])
   return [{ data, isLoading, isError }, setUrl]
 }
-function App () {
+function App() {
+
   console.log('as')
+
   const [query, setQuery] = useState('redux')
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
     'https://hn.algolia.com/api/v1/search?query=redux',
@@ -34,7 +38,7 @@ function App () {
       <form
         onSubmit={event => {
           doFetch(
-                        `http://hn.algolia.com/api/v1/search?query=${query}`
+            `http://hn.algolia.com/api/v1/search?query=${query}`
           )
           event.preventDefault()
         }}
@@ -50,14 +54,14 @@ function App () {
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
+          <ul>
+            {data.hits.map(item => (
+              <li key={item.objectID}>
+                <a href={item.url}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
     </Fragment>
   )
 }
